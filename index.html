@@ -3,101 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Sayang!</title>
+    <title>Happy Birthday Sayanggggkuuu! ❤️</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    
-    <style>
-        /* CSS UNTUK TAMPILAN */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            color: #333;
-        }
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
-        .card {
-            background: rgba(255, 255, 255, 0.9);
+    <style>
+        /* Gaya Tampilan Website */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fff0f3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        .container {
+            text-align: center;
+            background: white;
             padding: 30px;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            text-align: center;
-            max-width: 350px;
-            width: 90%;
-            z-index: 10;
+            box-shadow: 0 10px 30px rgba(255, 182, 193, 0.5);
+            width: 85%;
+            max-width: 400px;
         }
-
-        /* CODING UNTUK FOTO */
-        .profile-img {
+        .foto-utama {
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            border: 5px solid #ff6b6b;
+            border: 5px solid #ff4d6d;
             object-fit: cover;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
-
-        h1 {
-            font-size: 1.5rem;
-            color: #ff4d4d;
-            margin-bottom: 10px;
-        }
-
-        p {
-            font-size: 1rem;
-            line-height: 1.5;
-            color: #555;
-        }
-
-        button {
-            background: #ff6b6b;
+        h1 { color: #ff4d6d; margin-bottom: 10px; }
+        p { color: #555; line-height: 1.5; }
+        
+        /* Gaya Tombol */
+        .btn-surprise {
+            background-color: #ff4d6d;
             color: white;
             border: none;
-            padding: 10px 20px;
-            border-radius: 25px;
-            cursor: pointer;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 18px;
             font-weight: bold;
+            cursor: pointer;
             transition: 0.3s;
-            margin-top: 15px;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(255, 77, 109, 0.3);
         }
+        .btn-surprise:hover { transform: scale(1.05); background-color: #ff758f; }
 
-        button:hover {
-            background: #ff4d4d;
-            transform: scale(1.1);
+        /* Area Kejutan (Tersembunyi di awal) */
+        #surprise-content {
+            display: none;
+            margin-top: 25px;
+        }
+        .foto-surprise {
+            width: 100%;
+            border-radius: 15px;
+            margin-top: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
     </style>
 </head>
 <body>
 
-    <div class="card animate__animated animate__zoomIn">
-        <img src="b79a726b-d9be-4bad-b566-2d0ee677f161.jpeg" alt="Birthday Girl/Boy" class="profile-img animate__animated animate__pulse animate__infinite">
+    <div class="container animate__animated animate__fadeInDown">
+        <img src="foto1.jpg" alt="Foto Kamu" class="foto-utama">
         
-        <h1 class="animate__animated animate__fadeInDown animate__delay-1s">
-            Happy Birthday, Catiiikuu sayanggggkuuu cintakuuu 🎂
-        </h1>
-        
-        <p class="animate__animated animate__fadeIn animate__delay-2s">
-            "Semoga panjang umur sehat selalu dan semua yang diinginkan tercapai. Terima kasih sudah menjadi bagian terindah dalam hidupku.lopyuuu🤍🤍!"
-        </p>
-        <button onclick="bukaSurprise()">lopppyuu cayanggggg. 🤍</button>
-<div id="kotak-kejutan" style="display:none; margin-top: 20px;">
-    <p>I Love You! ❤️</p>
-    <img src="img_4528.jpeg" style="width: 100%;"> 
-</div>
+        <h1>Happy Birthday! 🎂🤍🤍</h1>
+        <p>Semoga di hari spesialmu ini, semua mimpimu menjadi nyata. Aku selalu ada di sampingmu sayangggggkuuuu! ❤️</p>
 
-<script>
-function bukaSurprise() {
-    // 1. Munculkan Konfeti
-    confetti();
-    
-    // 2. Munculkan Kotak Kejutan
-    var area = document.getElementById('kotak-kejutan');
-    area.style.display = 'block';
-}
-</script>
+        <button class="btn-surprise" onclick="tampilkanSurprise()">Klik Kejutan! ✨</button>
+
+        <div id="surprise-content" class="animate__animated animate__heartBeat">
+            <h2 style="color: #ff4d6d;">I Love You So Much! 💖</h2>
+            <p>Hadiah kecil dariku untukmu...</p>
+            <img src="foto2.jpg" alt="Surprise" class="foto-surprise">
+        </div>
+    </div>
+
+    <script>
+        function tampilkanSurprise() {
+            // 1. Efek Konfeti yang meriah
+            var duration = 3 * 1000;
+            var end = Date.now() + duration;
+
+            (function frame() {
+              confetti({
+                particleCount: 3,
+                angle: 60,
+                spread: 55,
+                origin: { x: 0 },
+                colors: ['#ff4d6d', '#ff758f', '#ffb3c1']
+              });
+              confetti({
+                particleCount: 3,
+                angle: 120,
+                spread: 55,
+                origin: { x: 1 },
+                colors: ['#ff4d6d', '#ff758f', '#ffb3c1']
+              });
+
+              if (Date.now() < end) {
+                requestAnimationFrame(frame);
+              }
+            }());
+
+            // 2. Memunculkan konten tersembunyi
+            document.getElementById('surprise-content').style.display = 'block';
+            
+            // 3. Scroll otomatis ke arah gambar kejutan
+            setTimeout(() => {
+                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+            }, 500);
+        }
+    </script>
+</body>
+</html>
