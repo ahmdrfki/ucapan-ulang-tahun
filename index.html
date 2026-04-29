@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Sayang!</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <style>
+        /* CSS UNTUK TAMPILAN */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            color: #333;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 350px;
+            width: 90%;
+            z-index: 10;
+        }
+
+        /* CODING UNTUK FOTO */
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid #ff6b6b;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            color: #ff4d4d;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        button {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background: #ff4d4d;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card animate__animated animate__zoomIn">
+        <img src="FOTO_KAMU.jpg" alt="Birthday Girl/Boy" class="profile-img animate__animated animate__pulse animate__infinite">
+        
+        <h1 class="animate__animated animate__fadeInDown animate__delay-1s">
+            Happy Birthday, Sayang! 🎂
+        </h1>
+        
+        <p class="animate__animated animate__fadeIn animate__delay-2s">
+            "Semoga harimu seindah senyummu. Terima kasih sudah menjadi bagian terindah dalam hidupku. Love you always!"
+        </p>
+
+        <button onclick="rayakan()">Klik Surprise! ✨</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    
+    <script>
+        function rayakan() {
+            // Efek Confetti
+            var duration = 3 * 1000;
+            var end = Date.now() + duration;
+
+            (function frame() {
+              confetti({
+                particleCount: 3,
+                angle: 60,
+                spread: 55,
+                origin: { x: 0 },
+                colors: ['#ff6b6b', '#ffa502']
+              });
+              confetti({
+                particleCount: 3,
+                angle: 120,
+                spread: 55,
+                origin: { x: 1 },
+                colors: ['#ff6b6b', '#ffa502']
+              });
+
+              if (Date.now() < end) {
+                requestAnimationFrame(frame);
+              }
+            }());
+            
+            alert("I Love You! ❤️");
+        }
+    </script>
+</body>
+</html>
