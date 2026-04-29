@@ -85,10 +85,20 @@
         <p class="animate__animated animate__fadeIn animate__delay-2s">
             "Semoga panjang umur sehat selalu dan semua yang diinginkan tercapai. Terima kasih sudah menjadi bagian terindah dalam hidupku.lopyuuu🤍🤍!"
         </p>
+<button onclick="bukaSurprise()">Klik Surprise! ✨</button>
 
-       <button onclick="surpres()">Klik Surprise! 😚🤍</button>
-
-<div id="surprise-area" style="display:none; margin-top: 20px;" class="animate__animated animate__bounceIn">
-    <p>30 April Thanks For Coming in my life🤍🤍</p>
-    <img src="img_4528.jpeg" style="width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+<div id="kotak-kejutan" style="display:none; margin-top: 20px;">
+    <p>I Love You! ❤️</p>
+    <img src="foto-kamu.jpg" style="width: 100%;"> 
 </div>
+
+<script>
+function bukaSurprise() {
+    // 1. Munculkan Konfeti
+    confetti();
+    
+    // 2. Munculkan Kotak Kejutan
+    var area = document.getElementById('kotak-kejutan');
+    area.style.display = 'block';
+}
+</script>
